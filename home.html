@@ -1,11 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>My home page</h1>
-</body>
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- tailwind and daisyUI cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-[#F4F5F7] h-[100vh] outfit">
+    <nav
+      class="flex items-center justify-between p-4 max-w-[480px] mx-auto border-b border-gray-300"
+    >
+      <div class="flex items-center gap-3">
+        <img class="h-12" src="./assets/Group.png" alt="" />
+        <div>
+          <p class="text-[18px] text-[#080808e6] font-extrabold">$45000</p>
+          <p class="text-[#08080880] text-[14px] mt-[6px]">Available Balance</p>
+        </div>
+      </div>
+      <div>
+        <button class="btn text-[#08080880] text-[14px]">
+          <i
+            class="rotate-180 fa-solid fa-arrow-right-from-bracket text-[#666768]"
+          ></i>
+          Log Out
+        </button>
+      </div>
+    </nav>
+
+    <div class="max-w-[480px] mx-auto mt-3 p-4">
+      <h2 class="text-[24px] text-[#080808] mb-3 font-bold">
+        🔥 Welcome to Payooo!
+      </h2>
+      <p class="mb-6 text-[#08080880]">
+        Enjoy easy and convenient financial services with us. Cashout charge is
+        low and
+      </p>
+
+      <div class="grid grid-cols-3 gap-4 card-container">
+        <div class="card py-5 border border-[#0808081a] rounded-xl">
+          <img class="w-6 mx-auto" src="./assets/wallet1.png" alt="" />
+          <p class="text-[14px] text-[#080808b3] mt-2 text-center">Add Money</p>
+        </div>
+        <div class="card py-5 border border-[#0808081a] rounded-xl">
+          <img class="w-6 mx-auto" src="./assets/send1.png" alt="" />
+          <p class="text-[14px] text-[#080808b3] mt-2 text-center">Cashout</p>
+        </div>
+        <div class="card py-5 border border-[#0808081a] rounded-xl">
+          <img class="w-6 mx-auto" src="./assets/money1.png" alt="" />
+          <p class="text-[14px] text-[#080808b3] mt-2 text-center">
+            Transfer Money
+          </p>
+        </div>
+        <div class="card py-5 border border-[#0808081a] rounded-xl">
+          <img class="w-6 mx-auto" src="./assets/bonus1.png" alt="" />
+          <p class="text-[14px] text-[#080808b3] mt-2 text-center">Get Bonus</p>
+        </div>
+        <div class="card py-5 border border-[#0808081a] rounded-xl">
+          <img class="w-6 mx-auto" src="./assets/purse1.png" alt="" />
+          <p class="text-[14px] text-[#080808b3] mt-2 text-center">Pay Bill</p>
+        </div>
+        <div class="card py-5 border border-[#0808081a] rounded-xl">
+          <img class="w-6 mx-auto" src="./assets/transaction1.png" alt="" />
+          <p class="text-[14px] text-[#080808b3] mt-2 text-center">
+            Transactions
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
