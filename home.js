@@ -1,21 +1,48 @@
-// add money button functionality
 const pin = 1234;
+
+// function to get input values converted to numbers
+function getInputValueNumber(id) {
+  const inputField = document.getElementById(id);
+  const inputFieldValue = inputField.value;
+  const inputFieldValueNumber = parseInt(inputFieldValue);
+
+  return inputFieldValueNumber;
+}
+
+// function to get input values
+function getInputValue(id) {
+  const inputField = document.getElementById(id);
+  const inputFieldValue = inputField.value;
+  return inputFieldValue;
+}
+
+// function to get innertext
+function getInnerText(id) {
+  const element = document.getElementById(id);
+  const elementValue = element.innerText;
+  const elementValueNumber = parseInt(elementValue);
+  return elementValueNumber;
+}
+
+// function to set innerText
+function setInnerText(value) {
+  const availableBalanceElement = document.getElementById("available-balance");
+  availableBalanceElement.innerText = value;
+}
+
+// add money button functionality
 document
   .getElementById("add-money-btn")
   .addEventListener("click", function (e) {
     // console.log("asif");
     e.preventDefault();
 
-    const bank = document.getElementById("bank").value;
-    const bankAccountNumber = document.getElementById(
-      "bank-account-number",
-    ).value;
-    const addAmount = parseInt(document.getElementById("add-amount").value);
-    const addPin = parseInt(document.getElementById("add-pin").value);
+    const bank = getInputValue("bank");
+    const bankAccountNumber = getInputValue("bank-account-number");
+    const addAmount = getInputValueNumber("add-amount");
+    const addPin = getInputValueNumber("add-pin");
 
-    const availableBalance = parseInt(
-      document.getElementById("available-balance").innerText,
-    );
+    const availableBalance = getInnerText("available-balance");
 
     if (bankAccountNumber.length < 11) {
       alert("Please provide a valid 11 digit bank account number!");
@@ -34,8 +61,7 @@ document
 
     const totalNewAvailableBalance = availableBalance + addAmount;
 
-    document.getElementById("available-balance").innerText =
-      totalNewAvailableBalance;
+    setInnerText(totalNewAvailableBalance);
     // console.log(bank, bankAccountNumber, addAmount, addPin, availableBalance);
   });
 
@@ -43,19 +69,13 @@ document
 document.getElementById("withdraw-btn").addEventListener("click", function (e) {
   e.preventDefault();
 
-  const agentAccountNumber = document.getElementById(
-    "agent-account-number",
-  ).value;
+  const agentAccountNumber = getInputValue("agent-account-number");
 
-  const withdrawAmount = parseInt(
-    document.getElementById("withdraw-amount").value,
-  );
+  const withdrawAmount = getInputValueNumber("withdraw-amount");
 
-  const withdrawPin = parseInt(document.getElementById("withdraw-pin").value);
+  const withdrawPin = getInputValueNumber("withdraw-pin");
 
-  const availableBalance = parseInt(
-    document.getElementById("available-balance").innerText,
-  );
+  const availableBalance = getInnerText("available-balance");
 
   if (availableBalance <= 0 || availableBalance < withdrawAmount) {
     alert("Insufficient Balance!");
@@ -79,8 +99,7 @@ document.getElementById("withdraw-btn").addEventListener("click", function (e) {
 
   const newTotalAvailableBalance = availableBalance - withdrawAmount;
 
-  document.getElementById("available-balance").innerText =
-    newTotalAvailableBalance;
+  setInnerText(newTotalAvailableBalance);
   // console.log(withdrawAmount, availableBalance);
 });
 
