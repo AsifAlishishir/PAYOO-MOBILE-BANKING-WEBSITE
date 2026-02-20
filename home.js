@@ -30,6 +30,31 @@ function setInnerText(value) {
   availableBalanceElement.innerText = value;
 }
 
+// function for toggle feature
+function setToggle(id) {
+  const forms = document.getElementsByClassName("form");
+  // console.log(forms);
+
+  for (const form of forms) {
+    form.style.display = "none";
+  }
+  document.getElementById(id).style.display = "block";
+}
+
+// function to set activeRoute
+function setActiveRoute(id) {
+  const cardBtn = document.getElementsByClassName("card");
+  for (const btn of cardBtn) {
+    btn.classList.remove("border-[#0874F2]", "bg-[#0874f20d]");
+    btn.classList.add("border-[#0808081a]");
+  }
+
+  document.getElementById(id).classList.remove("border-[#0808081a]");
+  document
+    .getElementById(id)
+    .classList.add("border-[#0874F2]", "bg-[#0874f20d]");
+}
+
 // add money button functionality
 document
   .getElementById("add-money-btn")
@@ -103,18 +128,61 @@ document.getElementById("withdraw-btn").addEventListener("click", function (e) {
   // console.log(withdrawAmount, availableBalance);
 });
 
-// toggleling feature
+// transfer btn functionality
+document.getElementById("transfer-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+  const userAccountNumber = getInputValue("user-account-number");
+  const transferAmount = getInputValueNumber("transfer-amount");
+  const transferPin = getInputValueNumber("transfer-pin");
+  const availableBalance = getInnerText("available-balance");
 
+  // console.log(userAccountNumber, transferAmount, transferPin, availableBalance);
+
+  if (availableBalance <= 0 || availableBalance < transferAmount) {
+    alert("Insufficient Balance!");
+    return;
+  }
+
+  if (userAccountNumber.length < 11) {
+    alert("Please enter valid 11 digit user account number!");
+    return;
+  }
+
+  if (transferAmount <= 0) {
+    alert("Please provide a valid amount!");
+    return;
+  }
+
+  if (transferPin !== pin) {
+    alert("Please provide a valid pin number!");
+    return;
+  }
+
+  const newTotalAvailableBalance = availableBalance - transferAmount;
+
+  setInnerText(newTotalAvailableBalance);
+});
+
+// toggleling feature
 document
   .getElementById("add-money-toggle-btn")
   .addEventListener("click", function () {
-    document.getElementById("add-money-section").style.display = "block";
-    document.getElementById("cash-out-section").style.display = "none";
+    setToggle("add-money-section");
+    setActiveRoute("add-money-toggle-btn");
   });
 
 document
   .getElementById("cashout-toggle-btn")
   .addEventListener("click", function () {
-    document.getElementById("add-money-section").style.display = "none";
-    document.getElementById("cash-out-section").style.display = "block";
+    setToggle("cash-out-section");
+    setActiveRoute("cashout-toggle-btn");
   });
+
+document
+  .getElementById("transfer-money-toggle-btn")
+  .addEventListener("click", function () {
+    setToggle("transfer-money-section");
+    setActiveRoute("transfer-money-toggle-btn");
+  });
+
+  
