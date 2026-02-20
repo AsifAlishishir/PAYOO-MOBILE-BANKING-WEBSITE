@@ -163,6 +163,59 @@ document.getElementById("transfer-btn").addEventListener("click", function (e) {
   setInnerText(newTotalAvailableBalance);
 });
 
+// get bonus btn functionality
+document
+  .getElementById("get-bonus-btn")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
+    const bonus = getInputValueNumber("bonus-coupon");
+    // console.log(bonus);
+
+    if (bonus > 70) {
+      alert("Sorry! The coupon is not available!");
+      return;
+    }
+
+    alert("congratulations! you have got " + bonus + "% bonus coupon.");
+  });
+
+// pay bill btn functionality
+document.getElementById("pay-bil-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const bank = getInputValue("bank");
+  const billerAccountNumber = getInputValue("biller-acount-number");
+  const payAmount = getInputValueNumber("pay-amount");
+  const payPin = getInputValueNumber("pay-pin");
+  const availableBalance = getInnerText("available-balance");
+
+  // console.log(bank, billerAccountNumber, payAmount, payPin, availableBalance);
+
+  if (availableBalance <= 0 || availableBalance < payAmount) {
+    alert("Insufficient Balance!");
+    return;
+  }
+
+  if (billerAccountNumber.length < 11) {
+    alert("Please enter valid 11 digit biller account number!");
+    return;
+  }
+
+  if (payAmount <= 0) {
+    alert("Please provide a valid amount!");
+    return;
+  }
+
+  if (payPin !== pin) {
+    alert("Please provide a valid pin number!");
+    return;
+  }
+
+  const newTotalAvailableBalance = availableBalance - payAmount;
+
+  setInnerText(newTotalAvailableBalance);
+});
+
 // toggleling feature
 document
   .getElementById("add-money-toggle-btn")
@@ -185,4 +238,16 @@ document
     setActiveRoute("transfer-money-toggle-btn");
   });
 
-  
+document
+  .getElementById("get-bonus-toggle-btn")
+  .addEventListener("click", function () {
+    setToggle("get-bonus-section");
+    setActiveRoute("get-bonus-toggle-btn");
+  });
+
+document
+  .getElementById("pay-bill-toggle-btn")
+  .addEventListener("click", function () {
+    setToggle("pay-bill-section");
+    setActiveRoute("pay-bill-toggle-btn");
+  });

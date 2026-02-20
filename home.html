@@ -25,7 +25,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-[#F4F5F7] outfit ">
+  <body class="bg-[#F4F5F7] outfit">
     <div class="max-w-[480px] mx-auto bg-white rounded-b-3xl mb-8">
       <nav
         class="flex items-center justify-between p-4 border-b border-gray-300"
@@ -86,13 +86,19 @@
               Transfer Money
             </p>
           </div>
-          <div class="card py-5 border border-[#0808081a] rounded-xl">
+          <div
+            id="get-bonus-toggle-btn"
+            class="card py-5 border border-[#0808081a] rounded-xl"
+          >
             <img class="w-6 mx-auto" src="./assets/bonus1.png" alt="" />
             <p class="text-[14px] text-[#080808b3] mt-2 text-center">
               Get Bonus
             </p>
           </div>
-          <div class="card py-5 border border-[#0808081a] rounded-xl">
+          <div
+            id="pay-bill-toggle-btn"
+            class="card py-5 border border-[#0808081a] rounded-xl"
+          >
             <img class="w-6 mx-auto" src="./assets/purse1.png" alt="" />
             <p class="text-[14px] text-[#080808b3] mt-2 text-center">
               Pay Bill
@@ -271,6 +277,100 @@
             class="btn bg-[#0874F2] py-6 mt-5 w-full rounded-[32px] text-white text-[18px] font-semibold"
           >
             Send Now
+          </button>
+        </form>
+      </div>
+
+      <!-- get bonus card -->
+      <div id="get-bonus-section" class="hidden mx-6 form h-[46vh]">
+        <h1 class="text-[18px] font-semibold text-[#080808e6] mb-4">
+          Get Bonus
+        </h1>
+        <form class="p-6 bg-white rounded-[24px]">
+          <div class="mt-5">
+            <label class="font-medium text-[#080808]" for=""
+              >Enter Bonus Coupon</label
+            >
+            <br />
+            <input
+              id="bonus-coupon"
+              type="number"
+              placeholder="Enter your coupon"
+              class="input bg-[#F4F5F7] rounded-[32px] mt-3 w-full"
+            />
+          </div>
+
+          <button
+            id="get-bonus-btn"
+            class="btn bg-[#0874F2] py-6 mt-5 w-full rounded-[32px] text-white text-[18px] font-semibold"
+          >
+            Get Bonus
+          </button>
+        </form>
+      </div>
+
+      <!-- pay bill card -->
+      <div id="pay-bill-section" class="hidden mx-6 form">
+        <h1 class="text-[18px] font-semibold text-[#080808e6] mb-4">
+          Pay Bill
+        </h1>
+        <form class="p-6 bg-white rounded-[24px]">
+          <label class="font-medium text-[#080808b3]" for=""
+            >Select A Bank</label
+          >
+          <br />
+          <select
+            id="bank"
+            class="rounded-[32px] select bg-[#F4F5F7] mt-3 w-full text-[#08080894]"
+          >
+            <option disabled selected>Select bank</option>
+            <option>IFIC Bank</option>
+            <option>Islamia Bank</option>
+            <option>Asia Bank</option>
+          </select>
+
+          <div class="mt-5">
+            <label class="font-medium text-[#080808]" for=""
+              >Biller Account Number</label
+            >
+            <br />
+            <input
+            id="biller-acount-number"
+              type="number"
+              placeholder="Enter account number"
+              class="input bg-[#F4F5F7] rounded-[32px] mt-3 w-full"
+            />
+          </div>
+
+          <div class="mt-5">
+            <label class="font-medium text-[#080808]" for=""
+              >Amount to Pay</label
+            >
+            <br />
+            <input
+            id="pay-amount"
+              type="number"
+              placeholder="Add Amount to pay"
+              class="input bg-[#F4F5F7] rounded-[32px] mt-3 w-full"
+            />
+          </div>
+
+          <div class="mt-5">
+            <label class="font-medium text-[#080808]" for="">Pin Number</label>
+            <br />
+            <input
+            id="pay-pin"
+              type="number"
+              placeholder="Enter 4 digit pin number"
+              class="input bg-[#F4F5F7] rounded-[32px] mt-3 w-full"
+            />
+          </div>
+
+          <button
+          id="pay-bil-btn"
+            class="btn bg-[#0874F2] py-6 mt-5 w-full rounded-[32px] text-white text-[18px] font-semibold"
+          >
+            Pay Now
           </button>
         </form>
       </div>
