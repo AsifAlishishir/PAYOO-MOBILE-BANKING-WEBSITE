@@ -248,6 +248,7 @@ document.getElementById("pay-bil-btn").addEventListener("click", function (e) {
   transactionData.push(data);
 });
 
+// transaction section functionality
 document
   .getElementById("transaction-toggle-btn")
   .addEventListener("click", function () {
@@ -288,6 +289,11 @@ document
     // console.log("asif");
     // console.log(transactionData);
   });
+
+// logout btn functionality
+document.getElementById("logout-btn").addEventListener("click", function () {
+  window.location.href = "./index.html";
+});
 
 // toggleling feature
 document
