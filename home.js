@@ -1,4 +1,5 @@
 const pin = 1234;
+const transactionData = [];
 
 // function to get input values converted to numbers
 function getInputValueNumber(id) {
@@ -88,6 +89,14 @@ document
 
     setInnerText(totalNewAvailableBalance);
     // console.log(bank, bankAccountNumber, addAmount, addPin, availableBalance);
+    const data = {
+      name: "Add Money",
+      date: new Date().toLocaleTimeString(),
+    };
+
+    transactionData.push(data);
+
+    console.log(transactionData);
   });
 
 // cashout btn functionality
@@ -126,6 +135,15 @@ document.getElementById("withdraw-btn").addEventListener("click", function (e) {
 
   setInnerText(newTotalAvailableBalance);
   // console.log(withdrawAmount, availableBalance);
+
+  const data = {
+    name: "Cash Out",
+    date: new Date().toLocaleTimeString(),
+  };
+
+  transactionData.push(data);
+
+  console.log(transactionData);
 });
 
 // transfer btn functionality
@@ -161,6 +179,13 @@ document.getElementById("transfer-btn").addEventListener("click", function (e) {
   const newTotalAvailableBalance = availableBalance - transferAmount;
 
   setInnerText(newTotalAvailableBalance);
+
+  const data = {
+    name: "Transfer Money",
+    date: new Date().toLocaleTimeString(),
+  };
+
+  transactionData.push(data);
 });
 
 // get bonus btn functionality
@@ -214,7 +239,55 @@ document.getElementById("pay-bil-btn").addEventListener("click", function (e) {
   const newTotalAvailableBalance = availableBalance - payAmount;
 
   setInnerText(newTotalAvailableBalance);
+
+  const data = {
+    name: "Pay Bill",
+    date: new Date().toLocaleTimeString(),
+  };
+
+  transactionData.push(data);
 });
+
+document
+  .getElementById("transaction-toggle-btn")
+  .addEventListener("click", function () {
+    // e.preventDefault();
+
+    const transactionDataContainer = document.getElementById(
+      "transaction-data-container",
+    );
+    transactionDataContainer.innerHTML = "";
+    for (const data of transactionData) {
+      const div = document.createElement("div");
+      div.innerHTML = `
+      <div
+            class="flex items-center justify-between bg-white px-4 py-[13px] rounded-[12px] border border-[#0808081a] mb-3"
+          >
+            <div class="flex items-center justify-between gap-3">
+              <div class="p-3 rounded-full bg-[#0808080d]">
+                <img src="./assets/purse1.png" alt="" srcset="" />
+              </div>
+              <div>
+                <h3 class="font-semibold text-[#080808b3] mb-[6px]">
+                  ${data.name}
+                </h3>
+                <p class="text-[12px] text-[#080808b3]">${data.date}</p>
+              </div>
+            </div>
+            <div>
+              <span
+                ><i
+                  class="fa-solid fa-ellipsis fa-rotate-90 text-[#0808088f]"
+                ></i
+              ></span>
+            </div>
+          </div>`;
+
+      transactionDataContainer.appendChild(div);
+    }
+    // console.log("asif");
+    // console.log(transactionData);
+  });
 
 // toggleling feature
 document
@@ -250,4 +323,11 @@ document
   .addEventListener("click", function () {
     setToggle("pay-bill-section");
     setActiveRoute("pay-bill-toggle-btn");
+  });
+
+document
+  .getElementById("transaction-toggle-btn")
+  .addEventListener("click", function () {
+    setToggle("transaction-section");
+    setActiveRoute("transaction-toggle-btn");
   });

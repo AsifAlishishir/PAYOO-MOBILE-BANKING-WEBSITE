@@ -63,7 +63,7 @@
         <div class="grid grid-cols-3 gap-4 mb-3 card-container">
           <div
             id="add-money-toggle-btn"
-            class="card py-5 border border-[#0808081a] rounded-xl"
+            class="card py-5 border border-[#0808081a] rounded-xl cursor-pointer"
           >
             <img class="w-6 mx-auto" src="./assets/wallet1.png" alt="" />
             <p class="text-[14px] text-[#080808b3] mt-2 text-center">
@@ -72,14 +72,14 @@
           </div>
           <div
             id="cashout-toggle-btn"
-            class="card py-5 border border-[#0808081a] rounded-xl"
+            class="card py-5 border border-[#0808081a] rounded-xl cursor-pointer"
           >
             <img class="w-6 mx-auto" src="./assets/send1.png" alt="" />
             <p class="text-[14px] text-[#080808b3] mt-2 text-center">Cashout</p>
           </div>
           <div
             id="transfer-money-toggle-btn"
-            class="card py-5 border border-[#0808081a] rounded-xl"
+            class="card py-5 border border-[#0808081a] rounded-xl cursor-pointer"
           >
             <img class="w-6 mx-auto" src="./assets/money1.png" alt="" />
             <p class="text-[14px] text-[#080808b3] mt-2 text-center">
@@ -88,7 +88,7 @@
           </div>
           <div
             id="get-bonus-toggle-btn"
-            class="card py-5 border border-[#0808081a] rounded-xl"
+            class="card py-5 border border-[#0808081a] rounded-xl cursor-pointer"
           >
             <img class="w-6 mx-auto" src="./assets/bonus1.png" alt="" />
             <p class="text-[14px] text-[#080808b3] mt-2 text-center">
@@ -97,14 +97,17 @@
           </div>
           <div
             id="pay-bill-toggle-btn"
-            class="card py-5 border border-[#0808081a] rounded-xl"
+            class="card py-5 border border-[#0808081a] rounded-xl cursor-pointer"
           >
             <img class="w-6 mx-auto" src="./assets/purse1.png" alt="" />
             <p class="text-[14px] text-[#080808b3] mt-2 text-center">
               Pay Bill
             </p>
           </div>
-          <div class="card py-5 border border-[#0808081a] rounded-xl">
+          <div
+            id="transaction-toggle-btn"
+            class="card py-5 border border-[#0808081a] rounded-xl cursor-pointer"
+          >
             <img class="w-6 mx-auto" src="./assets/transaction1.png" alt="" />
             <p class="text-[14px] text-[#080808b3] mt-2 text-center">
               Transactions
@@ -114,7 +117,7 @@
       </div>
     </div>
 
-    <div class="all-form-sections max-w-[480px] mx-auto">
+    <div class="all-form-sections max-w-[480px] mx-auto pb-10">
       <!-- add money card -->
       <div class="hidden mx-6 form" id="add-money-section">
         <h1 class="text-[18px] font-semibold text-[#080808e6] mb-4">
@@ -335,7 +338,7 @@
             >
             <br />
             <input
-            id="biller-acount-number"
+              id="biller-acount-number"
               type="number"
               placeholder="Enter account number"
               class="input bg-[#F4F5F7] rounded-[32px] mt-3 w-full"
@@ -348,7 +351,7 @@
             >
             <br />
             <input
-            id="pay-amount"
+              id="pay-amount"
               type="number"
               placeholder="Add Amount to pay"
               class="input bg-[#F4F5F7] rounded-[32px] mt-3 w-full"
@@ -359,7 +362,7 @@
             <label class="font-medium text-[#080808]" for="">Pin Number</label>
             <br />
             <input
-            id="pay-pin"
+              id="pay-pin"
               type="number"
               placeholder="Enter 4 digit pin number"
               class="input bg-[#F4F5F7] rounded-[32px] mt-3 w-full"
@@ -367,12 +370,24 @@
           </div>
 
           <button
-          id="pay-bil-btn"
+            id="pay-bil-btn"
             class="btn bg-[#0874F2] py-6 mt-5 w-full rounded-[32px] text-white text-[18px] font-semibold"
           >
             Pay Now
           </button>
         </form>
+      </div>
+
+      <!-- transaction card -->
+      <div id="transaction-section" class="hidden mx-6 form">
+        <div class="flex items-center justify-between mb-4">
+          <h1 class="text-[18px] font-semibold text-[#080808e6]">
+            Transaction History
+          </h1>
+          <p class="text-[14px] text-[#08080880]">View All</p>
+        </div>
+
+        <div id="transaction-data-container"></div>
       </div>
     </div>
 
